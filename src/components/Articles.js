@@ -1,10 +1,17 @@
+import { useSelector } from "react-redux";
+import { createSelector } from 'reselect';
 import { useState } from "react";
 
+const selectArticles = createSelector(
+    state => state.general,
+    general => general.articles
+);
+
 function Articles() {
-    const [loadedArticles, setLoadedArticles] = useState([{ "field1": "loading", "hours": 0, "minutes": 0, "seconds": 0 }, { "field1": "loading2" }]);
+    const initialStateArticles = useSelector(selectArticles);
+    const [loadedArticles, setLoadedArticles] = useState(initialStateArticles);
     return <div>
         {loadedArticles.map((article) => {
-            console.log(article.hours ? article.hours : null);
             return <div key={article.field1}>
                 <ul>
                     <li>{article.field1}</li>
