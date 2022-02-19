@@ -1,6 +1,16 @@
+import { useEffect } from "react";
+import { useDispatch } from 'react-redux';
+
+import { getLatestArticles } from "./actions/actionCreators";
 import Articles from "./components/Articles";
 
-function App() {
+function App() {  
+  const dispatch = useDispatch();
+  
+  useEffect(() => {
+    dispatch(getLatestArticles());
+  }, [dispatch]); 
+
   return <div>
     <Articles />
   </div>
