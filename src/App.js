@@ -13,7 +13,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className="font-serif">
       {/* <Articles /> */}
       <Home />
     </div>
