@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
 import { getLatestArticles } from "./actions/actionCreators";
-import { NavBar } from "./components/NavBar";
+import { Home } from "./components/Home";
 // import Articles from "./components/Articles";
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
   return (
     <div>
       {/* <Articles /> */}
-      <NavBar />
+      <Home />
     </div>
   );
 }
