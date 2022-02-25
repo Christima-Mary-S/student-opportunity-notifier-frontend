@@ -1,19 +1,17 @@
 import { useEffect } from "react";
-import { useDispatch } from 'react-redux';
+import { useDispatch } from "react-redux";
 
 import { getLatestArticles } from "./actions/actionCreators";
-import Articles from "./components/Articles";
+// import Articles from "./components/Articles";
 
-function App() {  
+function App() {
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
     dispatch(getLatestArticles());
-  }, [dispatch]); 
+  }, [dispatch]);
 
-  return <div>
-    <Articles />
-  </div>
+  return <div>{/* <Articles /> */}</div>;
 }
 
 export default App;
