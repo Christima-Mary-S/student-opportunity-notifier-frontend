@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
 import { getLatestArticles } from "./actions/actionCreators";
+import { NavBar } from "./components/NavBar";
 // import Articles from "./components/Articles";
 
 function App() {
@@ -11,7 +12,12 @@ function App() {
     dispatch(getLatestArticles());
   }, [dispatch]);
 
-  return <div>{/* <Articles /> */}</div>;
+  return (
+    <div>
+      {/* <Articles /> */}
+      <NavBar />
+    </div>
+  );
 }
 
 export default App;
