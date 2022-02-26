@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { BrowserRouter as Router } from "react-router-dom";
 
 import { getLatestArticles } from "./actions/actionCreators";
 import { Home } from "./components/Home";
@@ -13,10 +14,12 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className="font-serif">
-      {/* <Articles /> */}
-      <Home />
-    </div>
+    <Router>
+      <div className="font-serif">
+        {/* <Articles /> */}
+        <Home />
+      </div>
+    </Router>
   );
 }
 
