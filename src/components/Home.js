@@ -10,7 +10,7 @@ export const Home = () => {
   return (
     <div className="home h-screen w-screen overflow-hidden  bg-heroimg">
       <NavBar />
-      <div className="container">
+      <div className="container text-gray-200 flex justify-center items-center">
         <Switch>
           <Route exact path="/">
             <HeroText />

@@ -15,3 +15,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 } */
+
+.container {
+  height: 80vh;
+}
+
+.form-reg {
+  @apply flex flex-col w-52 md:w-96;
+}
+.form-login {
+  @apply flex flex-col w-52 md:w-72;
+}
+.form-reg input,
+.form-login input {
+  @apply bg-gray-600 border-0 outline-none accent-cyan-light rounded-md caret-cyan-light;
+}
+.form-reg label,
+.form-login label {
+  @apply mb-1 mt-1;
+}
+.btn {
+  @apply mt-4 bg-gradient-to-r from-cyan-light to-cyan-300 transform ease-in-out text-black-light w-64 md:w-52 flex justify-center items-center p-2  rounded-md border-0 capitalize;
+}
