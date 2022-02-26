@@ -5,7 +5,7 @@ export const HeroText = () => {
   return (
     <div className="m-4">
       <h1 className=" text-4xl mb-2">
-        Hello, <br /> Wanna to read some cool articles about
+        Hello, <br /> Wanna read some cool articles about
       </h1>
       <span className="text-cyan-300 text-6xl">
         <Typewriter
