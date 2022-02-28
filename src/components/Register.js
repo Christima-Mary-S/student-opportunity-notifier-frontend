@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import isEmpty from "is-empty";
+
+import { register } from "../actions/actionCreators";
 
 export const Register = () => {
   const [email, setEmail] = useState("");
@@ -7,6 +11,23 @@ export const Register = () => {
   const [repPassword, setRepPassword] = useState("");
   const [college, setCollege] = useState("");
   const [year, setYear] = useState("");
+
+  const dispatch = useDispatch();
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    //console.log(email, userName, password, repPassword, college, year);
+    const userData = {email: email, username: userName, password: password, repeatedPassword: repPassword};
+    if (!isEmpty(college)) {
+      userData.collegeName = college;
+    }
+    if (!isEmpty(year)) {
+      userData.yearOfGraduation = year;
+    }
+    
+    dispatch(register(userData));
+  }
+
   return (
     <div className="register-container bg-black-light p-10 capitalize shadow-xl shadow-slate-600 rounded-md  hover:scale-105 transform ease-in-out cursor-pointer">
       <h2 className="mb-2 text-center text-2xl">Register</h2>
@@ -25,7 +46,7 @@ export const Register = () => {
         <label htmlFor="username">username</label>
         <input
           type="text"
-          name="username"
+          name="username" 
           id="username"
           required
           value={userName}
@@ -66,7 +87,7 @@ export const Register = () => {
           onChange={(e) => setYear(e.target.value)}
         />
         <div className="flex items-center justify-center">
-          <button type="submit" className="btn">
+          <button type="submit" className="btn" onClick={onSubmit}>
             register
           </button>
         </div>

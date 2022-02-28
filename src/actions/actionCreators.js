@@ -1,5 +1,5 @@
 import * as api from "../api/index.js";
-import { GET_LATEST_ARTICLES } from "../actions/actionTypes.js"
+import { GET_LATEST_ARTICLES, GET_ERRORS } from "../actions/actionTypes.js"
 
 export const getLatestArticles = () => {
     return async (dispatch) => {
@@ -11,3 +11,14 @@ export const getLatestArticles = () => {
         }
     }
 } 
+
+export const register = (user) => {
+    return async (dispatch) => {
+        try {
+            const { data } = await api.registerUser(user);
+            console.log(data);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+}
