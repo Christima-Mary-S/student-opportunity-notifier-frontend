@@ -1,10 +1,7 @@
 import { GET_LATEST_ARTICLES } from "../actions/actionTypes.js";
 
 const initialState = {
-    articles: [
-        { "field1": "Random data on frontend", "hours": 1, "minutes": 1, "seconds": 1 },
-        { "field1": "loading2" }
-    ]
+    articles: []
 }
 
 const generalReducer = (state = initialState, action) => {// state consists of posts here 
