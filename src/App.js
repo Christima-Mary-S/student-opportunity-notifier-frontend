@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 import { getLatestArticles } from "./actions/actionCreators";
 import { Home } from "./components/Home";
-// import Articles from "./components/Articles";
+import Articles from "./components/Articles";
 
 function App() {
   const dispatch = useDispatch();
@@ -16,7 +16,7 @@ function App() {
   return (
     <Router>
       <div className="font-serif">
-        {/*<Articles />*/}
+        <Articles />
         <Home />
       </div>
     </Router>

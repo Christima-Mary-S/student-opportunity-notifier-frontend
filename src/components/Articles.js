@@ -8,17 +8,8 @@ const selectArticles = createSelector(
 
 function Articles() {
     const articles = useSelector(selectArticles);
+    console.log(articles);
     return <div>
-        {articles.map((article) => {
-            return <div key={article.field1}>
-                <ul>
-                    <li>{article.field1}</li>
-                    <li>{article.hours}</li>
-                    <li>{article.minutes}</li>
-                    <li>{article.seconds}</li>
-                </ul>
-            </div>;
-        })}
     </div>
 }
 
