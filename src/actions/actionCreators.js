@@ -1,6 +1,7 @@
 import * as api from "../api/index.js";
-import { GET_LATEST_ARTICLES, GET_ERRORS } from "../actions/actionTypes.js"
+import { GET_LATEST_ARTICLES, GET_ERRORS, SET_CURRENT_USER } from "../actions/actionTypes.js"
 import { setAuthToken } from "../utils/setAuthToken";
+import jwtDecode from "jwt-decode";
 
 export const getLatestArticles = () => {
     return async (dispatch) => {
@@ -32,6 +33,11 @@ export const login = (details) => {
             const { data } = await api.loginUser(details);
             const token = data.token;
             setAuthToken(token);
+            const userData = jwtDecode(token);
+            dispatch({
+                type: SET_CURRENT_USER,
+                payload: userData
+            });
         } catch (error) {
             dispatch({
                 type: GET_ERRORS,
