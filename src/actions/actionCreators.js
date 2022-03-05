@@ -16,9 +16,11 @@ export const register = (user) => {
     return async (dispatch) => {
         try {
             const { data } = await api.registerUser(user);
-            console.log(data);
         } catch (error) {
-            console.log(error);
+            dispatch({
+                type: GET_ERRORS,
+                payload: error.response.data
+            }); 
         }
     }
 }
