@@ -10,7 +10,7 @@ export const getLatestArticles = () => {
             console.log(error.message);
         }
     }
-} 
+}
 
 export const register = (user) => {
     return async (dispatch) => {
@@ -20,7 +20,7 @@ export const register = (user) => {
             dispatch({
                 type: GET_ERRORS,
                 payload: error.response.data
-            }); 
+            });
         }
     }
 }
@@ -28,13 +28,14 @@ export const register = (user) => {
 export const login = (details) => {
     return async (dispatch) => {
         try {
-            const token = await api.loginUser(details);
+            const { data } = await api.loginUser(details);
+            const token = data.token;
             console.log(token);
         } catch (error) {
             dispatch({
                 type: GET_ERRORS,
                 payload: error.response.data
-            }); 
+            });
         }
     }
 }
