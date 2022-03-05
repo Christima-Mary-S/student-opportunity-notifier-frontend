@@ -1,5 +1,6 @@
 import * as api from "../api/index.js";
 import { GET_LATEST_ARTICLES, GET_ERRORS } from "../actions/actionTypes.js"
+import { setAuthToken } from "../utils/setAuthToken";
 
 export const getLatestArticles = () => {
     return async (dispatch) => {
@@ -30,7 +31,7 @@ export const login = (details) => {
         try {
             const { data } = await api.loginUser(details);
             const token = data.token;
-            console.log(token);
+            setAuthToken(token);
         } catch (error) {
             dispatch({
                 type: GET_ERRORS,

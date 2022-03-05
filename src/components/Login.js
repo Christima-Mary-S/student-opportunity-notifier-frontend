@@ -1,8 +1,21 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+
+import { login } from "../actions/actionCreators";
+
 
 export const Login = () => {
   const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState(""); 
+
+  const dispatch = useDispatch();
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    const details = {username: userName, password: password};
+    dispatch(login(details));
+  }
+
   return (
     <div>
       <div className="register-container bg-black-light p-10 capitalize shadow-xl shadow-slate-600  rounded-md hover:scale-105 transform ease-in-out cursor-pointer">
@@ -29,7 +42,7 @@ export const Login = () => {
           />
 
           <div className="flex items-center justify-center">
-            <button type="submit" className="btn">
+            <button type="submit" className="btn" onClick={onSubmit}>
               login
             </button>
           </div>
