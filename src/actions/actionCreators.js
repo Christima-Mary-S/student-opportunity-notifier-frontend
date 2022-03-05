@@ -24,3 +24,17 @@ export const register = (user) => {
         }
     }
 }
+
+export const login = (details) => {
+    return async (dispatch) => {
+        try {
+            const token = await api.loginUser(details);
+            console.log(token);
+        } catch (error) {
+            dispatch({
+                type: GET_ERRORS,
+                payload: error.response.data
+            }); 
+        }
+    }
+}
