@@ -6,6 +6,11 @@ import { Link } from "react-router-dom";
 
 import { login } from "../actions/actionCreators";
 
+const selectIsAuthenticated = createSelector(
+  state => state.auth,
+  auth => auth.isUserAuthenticated
+);
+
 const selectErrors = createSelector(
   state => state.errors,
   errors => errors.errors
@@ -15,6 +20,7 @@ export const Login = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
+  const isAuthenticated = useSelector(selectIsAuthenticated);
   const errors = useSelector(selectErrors);
   console.log("Errors are", errors);
 
@@ -26,7 +32,7 @@ export const Login = () => {
     dispatch(login(details));
   };
 
-  return (
+  return (!isAuthenticated) ? (
     <div>
       <div className="register-container bg-black-light p-10 capitalize shadow-xl shadow-slate-600  rounded-md hover:scale-105 transform ease-in-out cursor-pointer">
         <h2 className="mb-2 text-center text-2xl">Login</h2>
@@ -68,5 +74,9 @@ export const Login = () => {
         </form>
       </div>
     </div>
-  );
+  ) : <div>
+    <button>
+      logout
+    </button>
+  </div>;
 };
