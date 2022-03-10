@@ -6,6 +6,11 @@ import { useSelector } from "react-redux";
 
 import { register } from "../actions/actionCreators";
 
+const selectIsAuthenticated = createSelector(
+  state => state.auth,
+  auth => auth.isUserAuthenticated
+);
+
 const selectErrors = createSelector(
   state => state.errors,
   errors => errors.errors
@@ -19,6 +24,7 @@ export const Register = () => {
   const [college, setCollege] = useState("");
   const [year, setYear] = useState("");
 
+  const isAuthenticated = useSelector(selectIsAuthenticated);
   const errors = useSelector(selectErrors);
   console.log("Errors are", errors);
 
@@ -38,7 +44,7 @@ export const Register = () => {
     dispatch(register(userData));
   }
 
-  return (
+  return !isAuthenticated? (
     <div className="register-container bg-black-light p-10 capitalize shadow-xl shadow-slate-600 rounded-md  hover:scale-105 transform ease-in-out cursor-pointer">
       <h2 className="mb-2 text-center text-2xl">Register</h2>
       <div className="h-2 bg-cyan-light rounded-t-md mb-2"></div>
@@ -103,5 +109,5 @@ export const Register = () => {
         </div>
       </form>
     </div>
-  );
+  ): <div><button>logout</button></div>;
 };
