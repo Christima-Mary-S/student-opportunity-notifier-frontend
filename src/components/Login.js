@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 import { login } from "../actions/actionCreators";
 
-
 export const Login = () => {
   const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState(""); 
+  const [password, setPassword] = useState("");
 
   const dispatch = useDispatch();
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    const details = {username: userName, password: password};
+    const details = { username: userName, password: password };
     dispatch(login(details));
-  }
+  };
 
   return (
     <div>
@@ -46,6 +46,15 @@ export const Login = () => {
               login
             </button>
           </div>
+          <p className="mt-2 flex justify-center">
+            New user?{" "}
+            <Link
+              to="./register"
+              className="ml-2 text-cyan-light border-b-2 border-cyan-light"
+            >
+              Register Now
+            </Link>
+          </p>
         </form>
       </div>
     </div>
