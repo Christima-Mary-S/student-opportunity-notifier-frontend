@@ -15,9 +15,9 @@ function App() {
 
   return (
     <Router>
-      <div className="font-serif">
-        <Articles />
+      <div className="font-serif overflow-hidden">
         <Home />
+        <Articles />
       </div>
     </Router>
   );
