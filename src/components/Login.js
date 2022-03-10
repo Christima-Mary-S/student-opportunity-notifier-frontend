@@ -1,12 +1,21 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { createSelector } from 'reselect';
+import { useSelector } from "react-redux";
 
 import { login } from "../actions/actionCreators";
 
+const selectErrors = createSelector(
+  state => state.errors,
+  errors => errors.errors
+);
 
 export const Login = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState(""); 
+
+  const errors = useSelector(selectErrors);
+  console.log("Errors are", errors);
 
   const dispatch = useDispatch();
 
