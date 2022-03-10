@@ -14,6 +14,10 @@ function Articles() {
     <div className=" w-screen overflow-hidden bg-black-comp flex flex-col items-center justify-center md:p-20 p-14 ">
       <h2 className="mb-6 text-3xl text-gray-dark font-extrabold">ARTICLES</h2>
       <div className="flex flex-wrap gap-10 justify-center">
+        {articles.map((article) => {
+          return <Card props={article} />;
+        })}
+        {/* <Card />
         <Card />
         <Card />
         <Card />
@@ -24,8 +28,7 @@ function Articles() {
         <Card />
         <Card />
         <Card />
-        <Card />
-        <Card />
+        <Card /> */}
       </div>
     </div>
   );
