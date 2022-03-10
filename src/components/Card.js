@@ -7,23 +7,24 @@ import {
   FaSave,
 } from "react-icons/fa";
 
-export const Card = () => {
+export const Card = ({ props }) => {
+  const { title, link, location, stipend, apply_by } = props;
   return (
     <article className=" h-80 w-72 border-2 border-none bg-black-light capitalize text-gray-dark shadow-xl shadow-slate-600">
       <div className="banner bg-cyan-light h-2/6"></div>
       <div className="info h-3/6  flex items-center justify-around border-b-2 border-slate-700">
         <div className="">
           <div className="flex gap-4 mb-2 font-semibold pl-2 pr-2">
-            <FaUserAlt /> <p>title</p>
+            <FaUserAlt /> <p>{title}</p>
           </div>
           <div className="flex gap-4 mb-2 font-semibold pl-2 pr-2">
-            <FaRupeeSign /> <p>stipend: 20000</p>
+            <FaRupeeSign /> <p>stipend: {stipend}</p>
           </div>
           <div className="flex gap-4 mb-2 font-semibold pl-2 pr-2">
-            <FaBuilding /> <p>location: kochi</p>
+            <FaBuilding /> <p>location: {location}</p>
           </div>
           <div className="flex gap-4 mb-2 font-semibold pl-2 pr-2">
-            <FaCalendarTimes /> <p>apply by: 09/04/22</p>
+            <FaCalendarTimes /> <p>apply by: {apply_by}</p>
           </div>
         </div>
       </div>
@@ -31,7 +32,9 @@ export const Card = () => {
         <button>
           <FaSave />
         </button>
-        <button className="p-1 shadow-md shadow-slate-700">Read Now</button>
+        <button className="p-1 shadow-md shadow-slate-700">
+          <a href={link}>Read Now</a>
+        </button>
       </div>
     </article>
   );
