@@ -1,16 +1,26 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import isEmpty from "is-empty";
+import { createSelector } from 'reselect';
+import { useSelector } from "react-redux";
 
 import { register } from "../actions/actionCreators";
 
+const selectErrors = createSelector(
+  state => state.errors,
+  errors => errors.errors
+);
+
 export const Register = () => {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState(""); 
   const [userName, setUsername] = useState("");
   const [password, setpassword] = useState("");
   const [repPassword, setRepPassword] = useState("");
   const [college, setCollege] = useState("");
   const [year, setYear] = useState("");
+
+  const errors = useSelector(selectErrors);
+  console.log("Errors are", errors);
 
   const dispatch = useDispatch();
 
