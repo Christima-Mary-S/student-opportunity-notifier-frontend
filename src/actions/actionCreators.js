@@ -1,5 +1,5 @@
 import * as api from "../api/index.js";
-import { GET_LATEST_ARTICLES, GET_ERRORS, SET_CURRENT_USER } from "../actions/actionTypes.js"
+import { GET_LATEST_ARTICLES, GET_ERRORS, SET_CURRENT_USER, SET_ADMIN, UNSET_ADMIN } from "../actions/actionTypes.js"
 import { setAuthToken } from "../utils/setAuthToken";
 import jwtDecode from "jwt-decode";
 
@@ -38,7 +38,12 @@ export const login = (details) => {
             dispatch({
                 type: SET_CURRENT_USER,
                 payload: userData
-            });
+            }); 
+            if (userData.username === "admin") {
+                dispatch({
+                    type: SET_ADMIN
+                }); 
+            }
         } catch (error) {
             dispatch({
                 type: GET_ERRORS,
@@ -55,6 +60,9 @@ export const logout = () => {
         dispatch({
             type: SET_CURRENT_USER,
             payload: {}
+        });
+        dispatch({
+            type: UNSET_ADMIN
         });
     }
 }

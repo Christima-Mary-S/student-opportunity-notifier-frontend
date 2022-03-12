@@ -1,11 +1,11 @@
 import isEmpty from "is-empty";
 
-import { USER_LOADING, SET_CURRENT_USER } from "../actions/actionTypes.js";
+import { SET_ADMIN, UNSET_ADMIN, SET_CURRENT_USER } from "../actions/actionTypes.js";
 
 const initialState = {
     isUserAuthenticated: false,
     user: {},
-    isUserLoading: false
+    isAdmin: false
 }
 
 const authReducer = (state = initialState, action) => {
@@ -14,10 +14,14 @@ const authReducer = (state = initialState, action) => {
             ...state,
             isUserAuthenticated: !isEmpty(action.payload),
             user: action.payload
-        }
-        case USER_LOADING: return {
+        };
+        case SET_ADMIN: return {
             ...state,
-            isUserLoading: true
+            isAdmin: true
+        };
+        case UNSET_ADMIN: return {
+            ...state,
+            isAdmin: false
         };
         default: return state;
     }
