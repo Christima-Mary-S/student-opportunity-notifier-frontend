@@ -5,6 +5,7 @@ import { createSelector } from 'reselect';
 import { useSelector } from "react-redux";
 
 import { register } from "../actions/actionCreators";
+import { LogoutButton } from "./LogoutButton";
 
 const selectIsAuthenticated = createSelector(
   state => state.auth,
@@ -26,7 +27,7 @@ export const Register = () => {
 
   const isAuthenticated = useSelector(selectIsAuthenticated);
   const errors = useSelector(selectErrors);
-  console.log("Errors are", errors);
+  //console.log("Errors are", errors);
 
   const dispatch = useDispatch();
 
@@ -109,5 +110,5 @@ export const Register = () => {
         </div>
       </form>
     </div>
-  ): <div><button>logout</button></div>;
+  ): <LogoutButton />;
 };

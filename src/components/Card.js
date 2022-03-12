@@ -9,7 +9,7 @@ import {
 
 export const Card = ({ props }) => {
   const { title, link, location, stipend, apply_by } = props;
-  console.log(location);
+  //console.log(location);
   return (
     <article className=" h-80 md:w-80 w-72 border-2 border-none bg-black-light capitalize text-gray-dark shadow-xl shadow-slate-600">
       <div className="banner bg-cyan-light h-2/6"></div>

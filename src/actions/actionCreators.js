@@ -50,3 +50,13 @@ export const login = (details) => {
         }
     }
 }
+
+export const logout = () => {
+    return async (dispatch) => {
+        setAuthToken(false);
+        dispatch({
+            type: SET_CURRENT_USER,
+            payload: {}
+        });
+    }
+}

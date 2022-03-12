@@ -15,7 +15,7 @@ const selectUser = createSelector(
 export const Dashboard = () => {
   const isAuthenticated = useSelector(selectIsAuthenticated);
   const user = useSelector(selectUser);
-  console.log(user);
+  console.log("Logged in user", user);
 
   return (
     <div>

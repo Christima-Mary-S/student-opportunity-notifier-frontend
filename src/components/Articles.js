@@ -9,7 +9,7 @@ const selectArticles = createSelector(
 
 function Articles() {
   const articles = useSelector(selectArticles);
-  console.log(articles);
+  //console.log(articles);
   return (
     <div className=" w-screen overflow-hidden bg-black-comp flex flex-col items-center justify-center md:p-20 p-14 ">
       <h2 className="mb-6 text-3xl text-gray-dark font-extrabold">ARTICLES</h2>

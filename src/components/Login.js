@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import { login } from "../actions/actionCreators";
+import { LogoutButton } from "./LogoutButton";
 
 const selectIsAuthenticated = createSelector(
   state => state.auth,
@@ -22,8 +23,8 @@ export const Login = () => {
 
   const isAuthenticated = useSelector(selectIsAuthenticated);
   const errors = useSelector(selectErrors);
-  console.log("Errors are", errors);
-
+  //console.log("Errors are", errors);
+ 
   const dispatch = useDispatch();
 
   const onSubmit = async (event) => {
@@ -74,9 +75,5 @@ export const Login = () => {
         </form>
       </div>
     </div>
-  ) : <div>
-    <button>
-      logout
-    </button>
-  </div>;
+  ) : <LogoutButton />;
 };
