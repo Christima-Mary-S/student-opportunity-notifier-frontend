@@ -1,21 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import isEmpty from "is-empty";
-import { createSelector } from 'reselect';
 import { useSelector } from "react-redux";
 
 import { register } from "../actions/actionCreators";
+import { selectIsAuthenticated, selectErrors } from "../selectors/selectors";
 import { LogoutButton } from "./LogoutButton";
-
-const selectIsAuthenticated = createSelector(
-  state => state.auth,
-  auth => auth.isUserAuthenticated
-);
-
-const selectErrors = createSelector(
-  state => state.errors,
-  errors => errors.errors
-);
 
 export const Register = () => {
   const [name, setName] = useState(""); 

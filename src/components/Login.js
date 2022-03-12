@@ -1,21 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { createSelector } from 'reselect';
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import { login } from "../actions/actionCreators";
+import { selectIsAuthenticated, selectErrors } from "../selectors/selectors";
 import { LogoutButton } from "./LogoutButton";
-
-const selectIsAuthenticated = createSelector(
-  state => state.auth,
-  auth => auth.isUserAuthenticated
-);
-
-const selectErrors = createSelector(
-  state => state.errors,
-  errors => errors.errors
-);
 
 export const Login = () => {
   const [userName, setUserName] = useState("");

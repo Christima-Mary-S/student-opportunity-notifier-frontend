@@ -3,9 +3,10 @@ import {
   FaUserAlt,
   FaRupeeSign,
   FaBuilding,
-  FaCalendarTimes,
-  FaSave,
+  FaCalendarTimes
 } from "react-icons/fa";
+
+import { ArticleSaveButton } from "./ArticleSaveButton";
 
 export const Card = ({ props }) => {
   const { title, link, location, stipend, apply_by } = props;
@@ -30,9 +31,7 @@ export const Card = ({ props }) => {
         </div>
       </div>
       <div className="btn-container  h-1/6 flex items-center justify-around ">
-        <button>
-          <FaSave />
-        </button>
+        <ArticleSaveButton />
         <button className="p-1 shadow-md shadow-slate-700">
           <a href={link}>Read Now</a>
         </button>
