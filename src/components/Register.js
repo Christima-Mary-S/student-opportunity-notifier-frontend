@@ -18,8 +18,7 @@ const selectErrors = createSelector(
 );
 
 export const Register = () => {
-  const [firstName, setFirstName] = useState(""); 
-  const [lastName, setLastName] = useState(""); 
+  const [name, setName] = useState(""); 
   const [email, setEmail] = useState(""); 
   const [userName, setUsername] = useState("");
   const [password, setpassword] = useState("");
@@ -36,7 +35,7 @@ export const Register = () => {
   const onSubmit = async (event) => {
     event.preventDefault();
     //console.log(email, userName, password, repPassword, college, year);
-    const userData = {firstName: firstName, lastName: lastName,email: email, username: userName, password: password, repeatedPassword: repPassword};
+    const userData = {name: name, email: email, username: userName, password: password, repeatedPassword: repPassword};
     if (!isEmpty(college)) {
       userData.collegeName = college;
     }
@@ -52,23 +51,14 @@ export const Register = () => {
       <h2 className="mb-2 text-center text-2xl">Register</h2>
       <div className="h-2 bg-cyan-light rounded-t-md mb-2"></div>
       <form action="" className="form-reg">
-        <label htmlFor="firstname">first name</label>
+        <label htmlFor="firstname">name</label>
         <input
           type="text"
-          name="firstname" 
-          id="firstname"
+          name="name" 
+          id="name"
           required
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-        />
-        <label htmlFor="lastname">last name</label>
-        <input
-          type="text"
-          name="lastname" 
-          id="lastname"
-          required
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
         />
         <label htmlFor="email">email</label>
         <input
@@ -115,14 +105,14 @@ export const Register = () => {
           value={college}
           onChange={(e) => setCollege(e.target.value)}
         />
-        {/*<label htmlFor="year">year of passing</label>
+        <label htmlFor="year">year of passing</label>
         <input
           type="text"
           name="year"
           id="year"
           value={year}
           onChange={(e) => setYear(e.target.value)}
-  />*/}
+        />
         <div className="flex items-center justify-center">
           <button type="submit" className="btn" onClick={onSubmit}>
             register
