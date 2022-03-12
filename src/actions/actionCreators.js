@@ -18,10 +18,6 @@ export const register = (user) => {
     return async (dispatch) => {
         try {
             const { data } = await api.registerUser(user);
-            dispatch({
-                type: SET_CURRENT_USER,
-                payload: data
-            });
         } catch (error) {
             dispatch({
                 type: GET_ERRORS,
