@@ -28,7 +28,7 @@ export const Register = () => {
 
   const isAuthenticated = useSelector(selectIsAuthenticated);
   const errors = useSelector(selectErrors);
-  //console.log("Errors are", errors);
+  console.log("Errors are", errors);
 
   const dispatch = useDispatch();
 
