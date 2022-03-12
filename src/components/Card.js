@@ -3,7 +3,7 @@ import {
   FaUserAlt,
   FaRupeeSign,
   FaBuilding,
-  FaCalendarTimes
+  FaCalendarTimes,
 } from "react-icons/fa";
 
 import { ArticleSaveButton } from "./ArticleSaveButton";
@@ -16,16 +16,16 @@ export const Card = ({ props }) => {
       <div className="banner bg-cyan-light h-2/6"></div>
       <div className="info h-3/6  flex items-center justify-around border-b-2 border-slate-700">
         <div className="">
-          <div className="flex gap-4 mb-2 font-semibold pl-2 pr-2">
+          <div className="flex gap-4 mb-2  pl-2 pr-2">
             <FaUserAlt /> <p>{title}</p>
           </div>
-          <div className="flex gap-4 mb-2 font-semibold pl-2 pr-2">
+          <div className="flex gap-4 mb-2  pl-2 pr-2">
             <FaRupeeSign /> <p>stipend: {stipend}</p>
           </div>
-          <div className="flex gap-4 mb-2 font-semibold pl-2 pr-2">
+          <div className="flex gap-4 mb-2  pl-2 pr-2">
             <FaBuilding /> <p>location: {location.split(",")[0]}</p>
           </div>
-          <div className="flex gap-4 mb-2 font-semibold pl-2 pr-2">
+          <div className="flex gap-4 mb-2  pl-2 pr-2">
             <FaCalendarTimes /> <p>apply by: {apply_by}</p>
           </div>
         </div>
