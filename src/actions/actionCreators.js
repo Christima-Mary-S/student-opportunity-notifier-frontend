@@ -33,6 +33,7 @@ export const login = (details) => {
             const { data } = await api.loginUser(details);
             const token = data.token;
             setAuthToken(token);
+            localStorage.setItem("jwtToken", token);
             const userData = jwtDecode(token);
             dispatch({
                 type: SET_CURRENT_USER,
@@ -50,6 +51,7 @@ export const login = (details) => {
 export const logout = () => {
     return async (dispatch) => {
         setAuthToken(false);
+        localStorage.removeItem("jwtToken");
         dispatch({
             type: SET_CURRENT_USER,
             payload: {}
