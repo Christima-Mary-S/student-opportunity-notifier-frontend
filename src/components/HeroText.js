@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Typewriter from "react-simple-typewriter";
 
 export const HeroText = () => {
@@ -18,7 +19,9 @@ export const HeroText = () => {
           words={["Internships ?", "Placements ?"]}
         />
       </span>
-      <button className="btn">explore now</button>
+      <a href="#articles" className="scroll-smooth">
+        <button className="btn">explore now</button>
+      </a>
     </div>
   );
 };

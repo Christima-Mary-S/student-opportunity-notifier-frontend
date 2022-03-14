@@ -14,7 +14,7 @@ export const Login = () => {
   const isAuthenticated = useSelector(selectIsAuthenticated);
   const errors = useSelector(selectErrors);
   console.log("Errors are", errors);
- 
+
   const dispatch = useDispatch();
 
   const onSubmit = async (event) => {
@@ -23,7 +23,7 @@ export const Login = () => {
     dispatch(login(details));
   };
 
-  return (!isAuthenticated) ? (
+  return !isAuthenticated ? (
     <div>
       <div className="register-container bg-black-light p-10 capitalize shadow-xl shadow-slate-600  rounded-md hover:scale-105 transform ease-in-out cursor-pointer">
         <h2 className="mb-2 text-center text-2xl">Login</h2>
@@ -65,5 +65,7 @@ export const Login = () => {
         </form>
       </div>
     </div>
-  ) : <LogoutButton />;
+  ) : (
+    <LogoutButton />
+  );
 };
