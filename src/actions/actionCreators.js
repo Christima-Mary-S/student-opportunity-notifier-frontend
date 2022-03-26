@@ -1,5 +1,5 @@
 import * as api from "../api/index.js";
-import { GET_LATEST_ARTICLES, GET_ERRORS, SET_CURRENT_USER, SET_ADMIN, UNSET_ADMIN } from "../actions/actionTypes.js"
+import { GET_LATEST_ARTICLES, GET_ERRORS, SET_CURRENT_USER, SET_ADMIN, UNSET_ADMIN, SAVE_ARTICLE } from "../actions/actionTypes.js"
 import { setAuthToken } from "../utils/setAuthToken";
 import jwtDecode from "jwt-decode";
 
@@ -64,5 +64,19 @@ export const logout = () => {
         dispatch({
             type: UNSET_ADMIN
         });
+    }
+}
+
+export const saveArticle = (userId, article) => {
+    return async (dispatch) => {
+        try {
+            const { data } = await api.saveArticle(userId, article);
+            dispatch({
+                type: SAVE_ARTICLE,
+                payload: data.articleId
+            })
+        } catch (error) {
+            console.log(error)
+        }
     }
 }

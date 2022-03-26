@@ -1,11 +1,14 @@
 import isEmpty from "is-empty";
+import produce from "immer";
 
-import { SET_ADMIN, UNSET_ADMIN, SET_CURRENT_USER } from "../actions/actionTypes.js";
+import { SET_ADMIN, UNSET_ADMIN, SET_CURRENT_USER, SAVE_ARTICLE } from "../actions/actionTypes.js";
 
 const initialState = {
     isUserAuthenticated: false,
-    user: {},
-    isAdmin: false
+    user: {
+        savedArticleIds: []
+    },
+    isAdmin: false,
 }
 
 const authReducer = (state = initialState, action) => {
@@ -23,6 +26,9 @@ const authReducer = (state = initialState, action) => {
             ...state,
             isAdmin: false
         };
+        case SAVE_ARTICLE: return produce(state, draft => {
+            draft.user.savedArticleIds.push(action.payload);
+        });
         default: return state;
     }
 }
