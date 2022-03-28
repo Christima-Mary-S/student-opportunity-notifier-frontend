@@ -15,6 +15,11 @@ export const selectUser = createSelector(
     auth => auth.user
 );
 
+export const selectSavedArticles = createSelector(
+    state => state.auth,
+    auth => auth.savedArticles
+);
+
 export const selectErrors = createSelector(
     state => state.errors,
     errors => errors.errors

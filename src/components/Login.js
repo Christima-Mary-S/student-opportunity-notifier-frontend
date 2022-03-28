@@ -3,8 +3,8 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { login } from "../actions/actionCreators";
-import { selectIsAuthenticated, selectErrors } from "../selectors/selectors";
+import { login, getSavedArticles } from "../actions/actionCreators";
+import { selectIsAuthenticated, selectErrors, selectSavedArticles, selectUser } from "../selectors/selectors";
 import { LogoutButton } from "./LogoutButton";
 
 export const Login = () => {
@@ -12,6 +12,7 @@ export const Login = () => {
   const [password, setPassword] = useState("");
 
   const isAuthenticated = useSelector(selectIsAuthenticated);
+  const user = useSelector(selectUser);
   const errors = useSelector(selectErrors);
   console.log("Errors are", errors);
 

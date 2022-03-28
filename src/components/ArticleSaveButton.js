@@ -2,7 +2,7 @@ import {
     FaSave
 } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
-import { saveArticle } from "../actions/actionCreators.js";
+import { saveArticle, getSavedArticles } from "../actions/actionCreators.js";
 import { selectIsAuthenticated, selectisAdmin, selectUser } from "../selectors/selectors";
 
 export const ArticleSaveButton = (props) => {
