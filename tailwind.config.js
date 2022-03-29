@@ -12,7 +12,7 @@ module.exports = {
       },
       backgroundImage: {
         heroimg:
-          "linear-gradient(to right bottom, rgba(0.0,0.0,0.0,0.7), rgba(0.0,0.0,0.0,0.7)), url(/src/components/bg-img.jpg)",
+          "linear-gradient(to right bottom, rgba(0.0,0.0,0.0,0.6), rgba(0.0,0.0,0.0,0.6)), url(/src/components/bg-img.jpg)",
         scaledown: "object-fit: scale-down",
       },
     },

@@ -11,12 +11,15 @@ function Articles() {
   const articles = useSelector(selectArticles);
   //console.log(articles);
   return (
-    <div className=" w-screen overflow-hidden bg-black-comp flex flex-col items-center justify-center md:p-20 p-14 ">
+    <div
+      id="articles"
+      className=" w-screen overflow-hidden bg-black-comp flex flex-col items-center justify-center md:p-20 p-14 "
+    >
       <h2 className="mb-6 text-3xl text-gray-dark font-extrabold">ARTICLES</h2>
       <div className="flex flex-wrap gap-10 justify-center">
         {articles
           .map((article) => {
-            return <Card props={article} />;
+            return <Card key={Date.now() + Math.random()} props={article} />;
           })
           .slice(0, 9)}
         {/* <Card />

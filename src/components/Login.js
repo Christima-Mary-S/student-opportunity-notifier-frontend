@@ -1,30 +1,21 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { createSelector } from 'reselect';
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { login } from "../actions/actionCreators";
+import { login, getSavedArticles } from "../actions/actionCreators";
+import { selectIsAuthenticated, selectErrors, selectSavedArticles, selectUser } from "../selectors/selectors";
 import { LogoutButton } from "./LogoutButton";
-
-const selectIsAuthenticated = createSelector(
-  state => state.auth,
-  auth => auth.isUserAuthenticated
-);
-
-const selectErrors = createSelector(
-  state => state.errors,
-  errors => errors.errors
-);
 
 export const Login = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
   const isAuthenticated = useSelector(selectIsAuthenticated);
+  const user = useSelector(selectUser);
   const errors = useSelector(selectErrors);
-  //console.log("Errors are", errors);
- 
+  console.log("Errors are", errors);
+
   const dispatch = useDispatch();
 
   const onSubmit = async (event) => {
@@ -33,7 +24,7 @@ export const Login = () => {
     dispatch(login(details));
   };
 
-  return (!isAuthenticated) ? (
+  return !isAuthenticated ? (
     <div>
       <div className="register-container bg-black-light p-10 capitalize shadow-xl shadow-slate-600  rounded-md hover:scale-105 transform ease-in-out cursor-pointer">
         <h2 className="mb-2 text-center text-2xl">Login</h2>
@@ -75,5 +66,7 @@ export const Login = () => {
         </form>
       </div>
     </div>
-  ) : <LogoutButton />;
+  ) : (
+    <LogoutButton />
+  );
 };
