@@ -31,7 +31,7 @@ export const Card = ({ props }) => {
         </div>
       </div>
       <div className="btn-container  h-1/6 flex items-center justify-around ">
-        <ArticleSaveButton />
+        <ArticleSaveButton key={link} title={title} link={link} location={location} stipend={stipend} apply_by={apply_by}/>
         <button className="p-1 shadow-md shadow-slate-700">
           <a href={link}>Read Now</a>
         </button>

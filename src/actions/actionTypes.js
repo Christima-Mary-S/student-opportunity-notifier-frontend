@@ -3,3 +3,5 @@ export const GET_ERRORS = "GET_ERRORS";
 export const SET_ADMIN = "SET_ADMIN";
 export const UNSET_ADMIN = "UNSET_ADMIN";
 export const SET_CURRENT_USER = "SET_CURRENT_USER";
+export const SAVE_ARTICLE = "SAVE_ARTICLE";
+export const GET_SAVED_ARTICLES = "GET_SAVED_ARTICLES";
