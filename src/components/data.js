@@ -16,4 +16,9 @@ export const links = [
     path: "/register",
     text: "Register",
   },
+  {
+    id: 4,
+    path: "/admin",
+    text: "Admin",
+  },
 ];

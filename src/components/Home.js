@@ -5,6 +5,7 @@ import { Login } from "./Login";
 import { Register } from "./Register";
 import { Dashboard } from "./Dashboard";
 import { HeroText } from "./HeroText";
+import { Admin } from "./Admin";
 
 export const Home = () => {
   return (
@@ -23,6 +24,9 @@ export const Home = () => {
           </Route>
           <Route exact path="/dashboard">
             <Dashboard />
+          </Route>
+          <Route exact path="/admin">
+            <Admin />
           </Route>
         </Switch>
       </div>
