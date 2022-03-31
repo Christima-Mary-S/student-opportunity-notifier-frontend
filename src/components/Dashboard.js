@@ -40,6 +40,7 @@ export const Dashboard = () => {
           <h1>Saved Articles component</h1>
         </TabPanel>
       </Tabs>
+      <SavedArticles />
     </div>
   ) : (
     <h1 className="text-center text-red-400">You are not logged in</h1>
