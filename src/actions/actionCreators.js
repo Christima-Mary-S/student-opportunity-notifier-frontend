@@ -86,7 +86,6 @@ export const getSavedArticles = (userId) => {
     return async (dispatch) => {
         try {
             const { data } = await api.getSavedArticles(userId);
-            console.log(data);
             dispatch({ type: GET_SAVED_ARTICLES, payload: data.articles });
         } catch (error) {
             console.log(error.message);
@@ -98,7 +97,6 @@ export const getUsers = () => {
     return async (dispatch) => {
         try {
             const { data } = await api.fetchUsers();
-            console.log(data);
             dispatch({ type: GET_USERS, payload: data });
         } catch (error) {
             console.log(error.message);
