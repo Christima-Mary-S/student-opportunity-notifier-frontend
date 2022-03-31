@@ -5,3 +5,4 @@ export const UNSET_ADMIN = "UNSET_ADMIN";
 export const SET_CURRENT_USER = "SET_CURRENT_USER";
 export const SAVE_ARTICLE = "SAVE_ARTICLE";
 export const GET_SAVED_ARTICLES = "GET_SAVED_ARTICLES";
+export const GET_USERS = "GET_USERS";

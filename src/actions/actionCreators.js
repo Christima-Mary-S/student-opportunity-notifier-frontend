@@ -1,5 +1,5 @@
 import * as api from "../api/index.js";
-import { GET_LATEST_ARTICLES, GET_ERRORS, SET_CURRENT_USER, SET_ADMIN, UNSET_ADMIN, SAVE_ARTICLE } from "../actions/actionTypes.js"
+import { GET_LATEST_ARTICLES, GET_ERRORS, SET_CURRENT_USER, SET_ADMIN, UNSET_ADMIN, SAVE_ARTICLE, GET_USERS } from "../actions/actionTypes.js"
 import { setAuthToken } from "../utils/setAuthToken";
 import jwtDecode from "jwt-decode";
 import { GET_SAVED_ARTICLES } from './actionTypes';
@@ -86,10 +86,20 @@ export const getSavedArticles = (userId) => {
     return async (dispatch) => {
         try {
             const { data } = await api.getSavedArticles(userId);
-            console.log(data);
             dispatch({ type: GET_SAVED_ARTICLES, payload: data.articles });
         } catch (error) {
             console.log(error.message);
         }
     }
 } 
+
+export const getUsers = () => {
+    return async (dispatch) => {
+        try {
+            const { data } = await api.fetchUsers();
+            dispatch({ type: GET_USERS, payload: data });
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+}

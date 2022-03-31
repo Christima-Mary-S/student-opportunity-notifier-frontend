@@ -9,3 +9,6 @@ export const saveArticle = (userId, article) => axios.post(baseUrl + "/saveArtic
 export const getSavedArticles = (userId) => {
     return axios.get(baseUrl + "/" + userId + "/getSavedArticles");
 }
+export const fetchUsers = () => {
+    return axios.get(baseUrl + "/admin/getUsers");
+}
