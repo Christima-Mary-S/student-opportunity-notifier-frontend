@@ -14,7 +14,8 @@ export const Admin = () => {
   const users = useSelector(selectUsers);
   if (isAdmin === true) {
     console.log("Users are", users);
+    return <div className="text-blue-500">Admin</div>;
+  } else {
+    return <div className="text-blue-500">You are not logged in as admin</div>;
   }
-
-  return <div className="text-blue-500">Admin</div>;
 };
