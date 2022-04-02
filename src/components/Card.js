@@ -6,7 +6,7 @@ import {
   FaCalendarTimes,
 } from "react-icons/fa";
 
-import { ArticleSaveButton } from "./ArticleSaveButton";
+import { ArticleStoreActionButton } from './ArticleStoreActionButton.js';
 
 export const Card = ({ props }) => {
   const { title, link, location, stipend, apply_by } = props;
@@ -31,7 +31,7 @@ export const Card = ({ props }) => {
         </div>
       </div>
       <div className="btn-container  h-1/6 flex items-center justify-around ">
-        <ArticleSaveButton key={link} title={title} link={link} location={location} stipend={stipend} apply_by={apply_by}/>
+        <ArticleStoreActionButton key={link} title={title} link={link} location={location} stipend={stipend} apply_by={apply_by} />
         <button className="p-1 shadow-md shadow-slate-700">
           <a href={link}>Read Now</a>
         </button>

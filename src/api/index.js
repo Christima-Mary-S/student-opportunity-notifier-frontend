@@ -6,6 +6,7 @@ export const fetchLatestArticles = () => axios.get(baseUrl + "/viewArticles");
 export const registerUser = (user) => axios.post(baseUrl + "/register", user);
 export const loginUser = (details) => axios.post(baseUrl + "/login", details);
 export const saveArticle = (userId, article) => axios.post(baseUrl + "/saveArticle", {userId: userId, article: article});
+export const deleteArticle = (userId, articleId) => axios.delete(baseUrl + "/deleteSavedArticle", {data: {userId: userId, articleId: articleId}});
 export const getSavedArticles = (userId) => {
     return axios.get(baseUrl + "/" + userId + "/getSavedArticles");
 }

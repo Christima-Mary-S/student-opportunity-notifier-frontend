@@ -1,13 +1,13 @@
 import isEmpty from "is-empty";
 import produce from "immer";
 
-import { SET_ADMIN, UNSET_ADMIN, SET_CURRENT_USER, SAVE_ARTICLE, GET_SAVED_ARTICLES } from "../actions/actionTypes.js";
+import { SET_ADMIN, UNSET_ADMIN, SET_CURRENT_USER, SAVE_ARTICLE, DELETE_ARTICLE, GET_SAVED_ARTICLES } from "../actions/actionTypes.js";
 
 const initialState = {
     isUserAuthenticated: false,
     user: {},
     savedArticles: [],
-    isAdmin: false,
+    isAdmin: false, 
 }
 
 const authReducer = (state = initialState, action) => {
@@ -27,6 +27,9 @@ const authReducer = (state = initialState, action) => {
         };
         case SAVE_ARTICLE: return produce(state, draft => {
             draft.user.savedArticleIds.push(action.payload);
+        });
+        case DELETE_ARTICLE: return produce(state, draft => {
+            draft.user.savedArticleIds = draft.user.savedArticleIds.filter(id => id !== action.payload);
         });
         case GET_SAVED_ARTICLES: return produce(state, draft => {
             draft.savedArticles = [];
