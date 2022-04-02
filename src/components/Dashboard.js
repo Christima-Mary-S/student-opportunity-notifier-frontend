@@ -10,6 +10,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
 import { LogoutButton } from "./LogoutButton.js";
+import { UserEditButton } from "./UserEditButton";
 import SavedArticles from "./SavedArticles";
 import { getSavedArticles } from "../actions/actionCreators.js";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
@@ -35,6 +36,7 @@ export const Dashboard = () => {
         </TabList>
         <TabPanel>
           <h1>profile component</h1>
+          <UserEditButton />
         </TabPanel>
         <TabPanel>
           <h1>Saved Articles component</h1>
