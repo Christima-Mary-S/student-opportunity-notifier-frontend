@@ -43,10 +43,9 @@ export const Dashboard = () => {
           <UserEditButton />
         </TabPanel>
         <TabPanel>
-          <h1>Saved Articles component</h1>
+          <SavedArticles />
         </TabPanel>
       </Tabs>
-      <SavedArticles />
     </div>
   ) : (
     <h1 className="text-center text-red-400">You are not logged in</h1>
