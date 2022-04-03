@@ -1,11 +1,16 @@
 import { useState } from "react";
+import validator from "validator";
 
 export const NewPasswordForm = () => {
     const [password, setPassword] = useState("");
 
     const onSubmit = (event) => {
         event.preventDefault();
-        console.log(password);
+        if (!validator.isLength(password, { min: 6, max: 30 })) {
+          console.log("Password must be at least 6 characters at maximum 30 characters long")
+        } else {
+          console.log(password);
+        }
     };
 
     return <div>
