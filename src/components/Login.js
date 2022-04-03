@@ -65,11 +65,7 @@ export const Login = () => {
           </p>
           <p className="mt-2 flex justify-center">
             <Link
-<<<<<<< HEAD
               to="./forgotpasswordapplication"
-=======
-              to="./reset-password"
->>>>>>> 4f92ae0a0001b2a128cfb15272f5d45cd2654095
               className="ml-2 text-cyan-light border-b-2 border-cyan-light"
             >
               Forgot password?
