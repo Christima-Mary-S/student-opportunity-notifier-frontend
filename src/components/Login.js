@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { login, getSavedArticles } from "../actions/actionCreators";
+import { login } from "../actions/actionCreators";
 import { selectIsAuthenticated, selectErrors, selectSavedArticles, selectUser } from "../selectors/selectors";
 import { LogoutButton } from "./LogoutButton";
 
@@ -65,7 +65,7 @@ export const Login = () => {
           </p>
           <p className="mt-2 flex justify-center">
             <Link
-              to="./register"
+              to="./forgotpasswordapplication"
               className="ml-2 text-cyan-light border-b-2 border-cyan-light"
             >
               Forgot password

@@ -6,6 +6,8 @@ import { Register } from "./Register";
 import { Dashboard } from "./Dashboard";
 import { HeroText } from "./HeroText";
 import { Admin } from "./Admin";
+import { ForgotPasswordApplication } from './ForgotPasswordApplication';
+import { NewPasswordForm } from './NewPasswordForm';
 
 export const Home = () => {
   return (
@@ -21,6 +23,12 @@ export const Home = () => {
           </Route>
           <Route exact path="/register/">
             <Register />
+          </Route>
+          <Route exact path="/forgotpasswordapplication/">
+            <ForgotPasswordApplication />
+          </Route>
+          <Route exact path="/newpasswordform/">
+            <NewPasswordForm />
           </Route>
           <Route exact path="/dashboard">
             <Dashboard />
