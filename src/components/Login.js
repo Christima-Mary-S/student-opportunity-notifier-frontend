@@ -63,7 +63,14 @@ export const Login = () => {
               Register Now
             </Link>
           </p>
-          
+          <p className="mt-2 flex justify-center">
+            <Link
+              to="./reset-password"
+              className="ml-2 text-cyan-light border-b-2 border-cyan-light"
+            >
+              Forgot password?
+            </Link>
+          </p>
         </form>
       </div>
     </div>
