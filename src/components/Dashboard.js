@@ -14,6 +14,7 @@ import { UserEditButton } from "./UserEditButton";
 import SavedArticles from "./SavedArticles";
 import { getSavedArticles } from "../actions/actionCreators.js";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import { Link } from "react-router-dom";
 
 export const Dashboard = () => {
   const dispatch = useDispatch();
@@ -48,6 +49,11 @@ export const Dashboard = () => {
       </Tabs>
     </div>
   ) : (
-    <h1 className="text-center text-red-400">You are not logged in</h1>
+    <div className="flex flex-col justify-center items-center">
+      <h1>You are not logged in</h1>
+      <Link to="/login">
+        <button className="btn">Login</button>
+      </Link>
+    </div>
   );
 };
