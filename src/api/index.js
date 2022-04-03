@@ -4,6 +4,7 @@ const baseUrl = "http://localhost:5000/api";
 
 export const fetchLatestArticles = () => axios.get(baseUrl + "/viewArticles");
 export const registerUser = (user) => axios.post(baseUrl + "/register", user);
+export const sendEmailForResetPassword = (email) => axios.post(baseUrl + "/reset-password", {email: email});
 export const loginUser = (details) => axios.post(baseUrl + "/login", details);
 export const saveArticle = (userId, article) => axios.post(baseUrl + "/saveArticle", {userId: userId, article: article});
 export const deleteArticle = (userId, articleId) => axios.delete(baseUrl + "/deleteSavedArticle", {data: {userId: userId, articleId: articleId}});

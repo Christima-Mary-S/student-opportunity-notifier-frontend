@@ -1,13 +1,15 @@
 import { useState } from "react";
 import validator from "validator";
+import { sendEmailForResetPassword } from '../api/index';
 
 export const ForgotPasswordApplication = () => {
     const [email, setEmail] = useState("");
 
-    const onSubmit = (event) => {
+    const onSubmit = async (event) => {
         event.preventDefault();
         if (validator.isEmail(email)) {
             console.log(email);
+            await sendEmailForResetPassword(email);
         } else {
             console.log("Email invalid!");
         }
