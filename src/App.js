@@ -1,14 +1,16 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { BrowserRouter as Router } from "react-router-dom";
 import jwtDecode from "jwt-decode";
 
-import { SET_CURRENT_USER } from "./actions/actionTypes.js";
+import { SET_CURRENT_USER, SET_ADMIN } from "./actions/actionTypes.js";
 import { getLatestArticles, logout } from "./actions/actionCreators";
 import { Home } from "./components/Home";
+import { selectUser } from "./selectors/selectors.js";
 import Articles from "./components/Articles";
 
-function App() {
+function App() { 
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -26,6 +28,11 @@ function App() {
         type: SET_CURRENT_USER,
         payload: userData
       });
+      if (userData.username === "admin") {
+        dispatch({
+          type: SET_ADMIN
+        })
+      }
     }
   }
 
