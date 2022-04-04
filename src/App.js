@@ -5,7 +5,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import jwtDecode from "jwt-decode";
 
 import { SET_CURRENT_USER, SET_ADMIN } from "./actions/actionTypes.js";
-import { getLatestArticles, logout } from "./actions/actionCreators";
+import { getLatestArticles, logout, getUsers } from "./actions/actionCreators";
 import { Home } from "./components/Home";
 import { selectUser } from "./selectors/selectors.js";
 import Articles from "./components/Articles";
