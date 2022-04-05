@@ -14,6 +14,9 @@ export const getSavedArticles = (userId) => {
 export const fetchUsers = () => {
     return axios.get(baseUrl + "/admin/getUsers");
 }
+export const deleteUser = (username) => {
+    return axios.delete(baseUrl + "/admin/deleteUser/" + username);
+} 
 export const updateNewPassword = (password, token) => {
     console.log(token)
     axios.post(baseUrl + "/update-password", {
