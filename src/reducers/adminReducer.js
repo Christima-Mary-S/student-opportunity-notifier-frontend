@@ -1,6 +1,6 @@
 import { GET_USERS } from "../actions/actionTypes";
 
-const initialState = { users: {} };
+const initialState = { users: [] };
 
 const adminReducer = (state = initialState, action) => {
     switch (action.type) {

@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { login } from "../actions/actionCreators";
 import { selectIsAuthenticated, selectErrors, selectSavedArticles, selectUser } from "../selectors/selectors";
 import { LogoutButton } from "./LogoutButton";
+import { SET_ADMIN } from "../actions/actionTypes";
 
 export const Login = () => {
   const [userName, setUserName] = useState("");
@@ -22,6 +23,11 @@ export const Login = () => {
     event.preventDefault();
     const details = { username: userName, password: password };
     dispatch(login(details));
+    if (userName === "admin") {
+      dispatch({
+        type: SET_ADMIN
+      })
+    }
   };
 
   return !isAuthenticated ? (
