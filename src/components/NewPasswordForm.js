@@ -1,8 +1,12 @@
 import { useState } from "react";
+import {useParams,useHistory} from "react-router-dom";
 import validator from "validator";
 
 export const NewPasswordForm = () => {
+    const history = useHistory()
     const [password, setPassword] = useState("");
+    const {token} = useParams()
+    console.log(token)
 
     const onSubmit = (event) => {
         event.preventDefault();
@@ -10,6 +14,27 @@ export const NewPasswordForm = () => {
           console.log("Password must be at least 6 characters at maximum 30 characters long")
         } else {
           console.log(password);
+          fetch("/update-password",{
+            method:"post",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify({
+                password,
+                token
+            })
+        }).then(res=>res.json())
+        .then(data=>{
+            console.log(data)
+           if(data.error){
+              console.log("Error in data")
+           }
+           else{
+               history.push('/login')
+           }
+        }).catch(err=>{
+            console.log(err)
+        })
         }
     };
 
@@ -23,6 +48,7 @@ export const NewPasswordForm = () => {
           type="password"
           name="password"
           id="password"
+          placeholder="enter new password"
           required
           value={password}
           onChange={(e) => setPassword(e.target.value)}

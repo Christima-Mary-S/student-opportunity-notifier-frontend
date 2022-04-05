@@ -27,7 +27,7 @@ export const Home = () => {
           <Route exact path="/forgotpasswordapplication/">
             <ForgotPasswordApplication />
           </Route>
-          <Route exact path="/newpasswordform/">
+          <Route exact path="/reset/:token">
             <NewPasswordForm />
           </Route>
           <Route exact path="/dashboard">
