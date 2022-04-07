@@ -8,6 +8,10 @@ export const ForgotPasswordApplication = () => {
 
   const [error, setError] = useState("");
 
+  const clear = () => {
+    setEmail("");
+  }
+
   const onSubmit = async (event) => {
     event.preventDefault();
     if (validator.isEmpty(email)) {
@@ -19,6 +23,7 @@ export const ForgotPasswordApplication = () => {
       } else {
         setError("Email invalid!");
       }
+      clear();
     }
   };
 

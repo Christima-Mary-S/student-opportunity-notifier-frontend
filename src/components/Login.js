@@ -19,6 +19,11 @@ export const Login = () => {
 
   const dispatch = useDispatch();
 
+  const clear = () => {
+    setUserName("");
+    setPassword("");
+  }
+
   const onSubmit = async (event) => {
     event.preventDefault();
     const details = { username: userName, password: password };
@@ -28,6 +33,7 @@ export const Login = () => {
         type: SET_ADMIN
       })
     }
+    clear();
   };
 
   return !isAuthenticated ? (

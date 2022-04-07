@@ -22,6 +22,16 @@ export const Register = () => {
 
   const dispatch = useDispatch();
 
+  const clear = () => {
+    setName("");
+    setEmail("");
+    setUsername("");
+    setpassword("");
+    setRepPassword("");
+    setCollege("");
+    setYear(null);
+  }
+
   const onSubmit = async (event) => {
     event.preventDefault();
     //console.log(email, userName, password, repPassword, college, year);
@@ -34,6 +44,7 @@ export const Register = () => {
     }
     
     dispatch(register(userData));
+    clear();
   }
 
   return !isAuthenticated? (

@@ -12,6 +12,10 @@ export const NewPasswordForm = () => {
 
   const [error, setError] = useState("");
 
+  const clear = () => {
+    setPassword("");
+  }
+
   const onSubmit = async (event) => {
     event.preventDefault();
     if (validator.isEmpty(password)) { 
@@ -24,6 +28,7 @@ export const NewPasswordForm = () => {
         await updateNewPassword(password, token);
       }
     }
+    clear();
   };
 
   return <div>
