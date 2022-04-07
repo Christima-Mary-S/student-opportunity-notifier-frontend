@@ -1,14 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import validator from "validator";
 import { updateNewPassword } from "../api";
-import { isEmpty } from 'is-empty';
+import { clearErrors } from "../actions/actionCreators";
 
 export const NewPasswordForm = () => {
   const history = useHistory()
   const [password, setPassword] = useState("");
   const { token } = useParams()
   console.log(token)
+
+  const dispatch = useDispatch();
+  useEffect(() => dispatch(clearErrors()), [dispatch]);
 
   const [error, setError] = useState("");
 

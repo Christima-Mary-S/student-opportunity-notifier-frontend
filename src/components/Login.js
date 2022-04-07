@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { login } from "../actions/actionCreators";
+import { login, clearErrors } from "../actions/actionCreators";
 import { selectIsAuthenticated, selectErrors, selectSavedArticles, selectUser } from "../selectors/selectors";
 import { LogoutButton } from "./LogoutButton";
 import { SET_ADMIN } from "../actions/actionTypes";
@@ -18,6 +18,7 @@ export const Login = () => {
   console.log("Errors are", errors);
 
   const dispatch = useDispatch();
+  useEffect(() => dispatch(clearErrors()), [dispatch]);
 
   const clear = () => {
     setUserName("");

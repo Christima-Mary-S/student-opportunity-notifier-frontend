@@ -1,4 +1,4 @@
-import { GET_ERRORS } from "../actions/actionTypes.js";
+import { GET_ERRORS, CLEAR_ERRORS } from "../actions/actionTypes.js";
 
 const initialState = { errors: {} };
 
@@ -8,6 +8,7 @@ const errorsReducer = (state = initialState, action) => {
             ...state,
             errors: action.payload
         };
+        case CLEAR_ERRORS: return initialState;
         default: return state;
     }
 }

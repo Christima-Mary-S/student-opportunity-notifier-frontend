@@ -1,12 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import validator from "validator";
 import { sendEmailForResetPassword } from '../api/index';
 import { isEmpty } from 'is-empty';
+import { clearErrors } from "../actions/actionCreators";
 
 export const ForgotPasswordApplication = () => {
   const [email, setEmail] = useState("");
 
   const [error, setError] = useState("");
+
+  const dispatch = useDispatch();
+  useEffect(() => dispatch(clearErrors()), [dispatch]);
 
   const clear = () => {
     setEmail("");

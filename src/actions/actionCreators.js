@@ -2,7 +2,7 @@ import * as api from "../api/index.js";
 import { GET_LATEST_ARTICLES, GET_ERRORS, SET_CURRENT_USER, SET_ADMIN, UNSET_ADMIN, SAVE_ARTICLE, GET_USERS } from "../actions/actionTypes.js"
 import { setAuthToken } from "../utils/setAuthToken";
 import jwtDecode from "jwt-decode";
-import { GET_SAVED_ARTICLES, DELETE_ARTICLE, DELETE_USER } from './actionTypes';
+import { GET_SAVED_ARTICLES, DELETE_ARTICLE, DELETE_USER, CLEAR_ERRORS } from './actionTypes';
 
 export const getLatestArticles = () => {
     return async (dispatch) => {
@@ -12,6 +12,12 @@ export const getLatestArticles = () => {
         } catch (error) {
             console.log(error.message);
         }
+    }
+}
+
+export const clearErrors = () => {
+    return (dispatch) => {
+        dispatch({ type: CLEAR_ERRORS });
     }
 }
 

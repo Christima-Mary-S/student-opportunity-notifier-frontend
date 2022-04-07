@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import isEmpty from "is-empty";
 import { useSelector } from "react-redux";
 
-import { register } from "../actions/actionCreators";
+import { clearErrors, register } from "../actions/actionCreators";
 import { selectIsAuthenticated, selectErrors } from "../selectors/selectors";
 import { LogoutButton } from "./LogoutButton";
 
@@ -21,6 +21,7 @@ export const Register = () => {
   console.log("Errors are", errors);
 
   const dispatch = useDispatch();
+  useEffect(() => dispatch(clearErrors()), [dispatch]);
 
   const clear = () => {
     setName("");

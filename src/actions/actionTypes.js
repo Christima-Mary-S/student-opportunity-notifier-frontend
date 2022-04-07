@@ -1,5 +1,6 @@
 export const GET_LATEST_ARTICLES = "GET_LATEST_ARTICLES";
 export const GET_ERRORS = "GET_ERRORS";
+export const CLEAR_ERRORS = "CLEAR_ERRORS"; 
 export const SET_ADMIN = "SET_ADMIN";
 export const UNSET_ADMIN = "UNSET_ADMIN";
 export const SET_CURRENT_USER = "SET_CURRENT_USER";
