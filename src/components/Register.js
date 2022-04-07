@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { clearErrors, register } from "../actions/actionCreators";
 import { selectIsAuthenticated, selectErrors } from "../selectors/selectors";
 import { LogoutButton } from "./LogoutButton";
+import { useHistory } from 'react-router-dom';
 
 export const Register = () => {
   const [name, setName] = useState(""); 
@@ -21,6 +22,7 @@ export const Register = () => {
   console.log("Errors are", errors);
 
   const dispatch = useDispatch();
+  const history = useHistory();
   useEffect(() => dispatch(clearErrors()), [dispatch]);
 
   const clear = () => {
@@ -44,7 +46,7 @@ export const Register = () => {
       userData.yearOfGraduation = year;
     }
     
-    dispatch(register(userData));
+    dispatch(register(userData, history));
     clear();
   }
 

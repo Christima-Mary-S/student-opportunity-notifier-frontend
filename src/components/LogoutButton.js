@@ -1,12 +1,14 @@
 import { useDispatch } from "react-redux";
 
 import { logout } from "../actions/actionCreators";
+import { useHistory } from 'react-router-dom';
 
 export const LogoutButton = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const onLogout = () => {
-    dispatch(logout());
+    dispatch(logout(history));
   };
 
   return (

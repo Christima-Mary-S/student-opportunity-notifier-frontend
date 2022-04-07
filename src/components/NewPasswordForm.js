@@ -30,6 +30,7 @@ export const NewPasswordForm = () => {
       } else {
         console.log(password);
         await updateNewPassword(password, token);
+        history.push("/login");
       }
     }
     clear();

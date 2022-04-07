@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import { login, clearErrors } from "../actions/actionCreators";
 import { selectIsAuthenticated, selectErrors, selectSavedArticles, selectUser } from "../selectors/selectors";
@@ -18,6 +18,7 @@ export const Login = () => {
   console.log("Errors are", errors);
 
   const dispatch = useDispatch();
+  const history = useHistory();
   useEffect(() => dispatch(clearErrors()), [dispatch]);
 
   const clear = () => {
@@ -28,7 +29,7 @@ export const Login = () => {
   const onSubmit = async (event) => {
     event.preventDefault();
     const details = { username: userName, password: password };
-    dispatch(login(details));
+    dispatch(login(details, history));
     if (userName === "admin") {
       dispatch({
         type: SET_ADMIN

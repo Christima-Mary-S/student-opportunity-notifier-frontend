@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, useHistory } from "react-router-dom";
 import jwtDecode from "jwt-decode";
 
 import { SET_CURRENT_USER, SET_ADMIN } from "./actions/actionTypes.js";
@@ -12,6 +12,7 @@ import Articles from "./components/Articles";
 
 function App() { 
   const dispatch = useDispatch();
+  const history = useHistory();
 
   useEffect(() => {
     dispatch(getLatestArticles());
@@ -22,7 +23,7 @@ function App() {
     const userData = jwtDecode(token);
     const currentTime = Date.now() / 1000; //milliseconds
     if (userData.exp < currentTime) {
-      dispatch(logout());
+      dispatch(logout(history));
     } else {
       dispatch({
         type: SET_CURRENT_USER,

@@ -21,10 +21,11 @@ export const clearErrors = () => {
     }
 }
 
-export const register = (user) => {
+export const register = (user, history) => {
     return async (dispatch) => {
         try {
             const { data } = await api.registerUser(user);
+            history.push("/login");
         } catch (error) {
             dispatch({
                 type: GET_ERRORS,
@@ -34,7 +35,7 @@ export const register = (user) => {
     }
 }
 
-export const login = (details) => {
+export const login = (details, history) => {
     return async (dispatch) => {
         try {
             const { data } = await api.loginUser(details);
@@ -49,7 +50,10 @@ export const login = (details) => {
             if (userData.username === "admin") {
                 dispatch({
                     type: SET_ADMIN
-                }); 
+                });
+                history.push("/admin"); 
+            } else {
+                history.push("/dashboard");
             }
         } catch (error) {
             dispatch({
@@ -60,7 +64,7 @@ export const login = (details) => {
     }
 }
 
-export const logout = () => {
+export const logout = (history) => {
     return async (dispatch) => {
         setAuthToken(false);
         localStorage.removeItem("jwtToken");
@@ -71,6 +75,7 @@ export const logout = () => {
         dispatch({
             type: UNSET_ADMIN
         });
+        history.push("/login");
     }
 }
 
