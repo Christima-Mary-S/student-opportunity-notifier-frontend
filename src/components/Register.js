@@ -50,6 +50,7 @@ export const Register = () => {
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
+        <span className="text-danger">{errors.name ?? errors.name}</span>
         <label htmlFor="email">email</label>
         <input
           type="email"
@@ -60,6 +61,7 @@ export const Register = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
+        <span className="text-danger">{errors.email ?? errors.email}</span>
         <label htmlFor="username">username</label>
         <input
           type="text"
@@ -69,6 +71,7 @@ export const Register = () => {
           value={userName}
           onChange={(e) => setUsername(e.target.value)}
         />
+        <span className="text-danger">{errors.username ?? errors.username}</span>
         <label htmlFor="password">password</label>
         <input
           type="password"
@@ -78,6 +81,7 @@ export const Register = () => {
           value={password}
           onChange={(e) => setpassword(e.target.value)}
         />
+        <span className="text-danger">{errors.password ?? errors.password}</span>
         <label htmlFor="repassword">repeat password</label>
         <input
           type="password"
@@ -87,6 +91,7 @@ export const Register = () => {
           value={repPassword}
           onChange={(e) => setRepPassword(e.target.value)}
         />
+        <span className="text-danger">{errors.repeatedPassword ?? errors.repeatedPassword}</span>
         <label htmlFor="college">college</label>
         <input
           type="text"
@@ -95,6 +100,7 @@ export const Register = () => {
           value={college}
           onChange={(e) => setCollege(e.target.value)}
         />
+        <span className="text-danger">{errors.collegeName ?? errors.collegeName}</span>
         <label htmlFor="year">year of passing</label>
         <input
           type="text"
@@ -103,6 +109,7 @@ export const Register = () => {
           value={year}
           onChange={(e) => setYear(e.target.value)}
         />
+        <span className="text-danger">{errors.yearOfGraduation ?? errors.yearOfGraduation}</span>
         <div className="flex items-center justify-center">
           <button type="submit" className="btn" onClick={onSubmit}>
             register

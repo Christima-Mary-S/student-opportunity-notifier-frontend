@@ -45,6 +45,7 @@ export const Login = () => {
             value={userName}
             onChange={(e) => setUserName(e.target.value)}
           />
+          <span className="text-danger">{errors.username ?? errors.username}</span>
           <label htmlFor="password">password</label>
           <input
             type="password"
@@ -54,7 +55,7 @@ export const Login = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-
+          <span className="text-danger">{errors.password ?? errors.password}</span>
           <div className="flex items-center justify-center">
             <button type="submit" className="btn" onClick={onSubmit}>
               login

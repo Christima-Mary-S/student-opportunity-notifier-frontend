@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import validator from "validator";
 import { updateNewPassword } from "../api";
+import { isEmpty } from 'is-empty';
 
 export const NewPasswordForm = () => {
   const history = useHistory()
@@ -9,13 +10,19 @@ export const NewPasswordForm = () => {
   const { token } = useParams()
   console.log(token)
 
+  const [error, setError] = useState("");
+
   const onSubmit = async (event) => {
     event.preventDefault();
-    if (!validator.isLength(password, { min: 6, max: 30 })) {
-      console.log("Password must be at least 6 characters at maximum 30 characters long")
+    if (validator.isEmpty(password)) { 
+      setError("Password field cannot be empty!");
     } else {
-      console.log(password);
-      await updateNewPassword(password, token);
+      if (!validator.isLength(password, { min: 6, max: 30 })) {
+        setError("Password must be at least 6 characters at maximum 30 characters long");
+      } else {
+        console.log(password);
+        await updateNewPassword(password, token);
+      }
     }
   };
 
@@ -34,6 +41,7 @@ export const NewPasswordForm = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        <span className="text-danger">{error}</span>
         <div className="flex items-center justify-center">
           <button type="submit" className="btn" onClick={onSubmit}>
             Update password
