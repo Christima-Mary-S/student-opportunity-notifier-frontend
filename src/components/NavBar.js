@@ -1,9 +1,15 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
-import { FaBars } from "react-icons/fa";
-import { links } from "./data";
+import { useSelector } from "react-redux";
+import { selectIsAuthenticated, selectisAdmin } from "../selectors/selectors";
+import { generalLinks, userLinks, adminLinks } from "./data";
+import { LogoutButton } from './LogoutButton';
 
-export const NavBar = () => {
+export const NavBar = () => { 
+  const isAuthenticated = useSelector(selectIsAuthenticated);
+  const isAdmin = useSelector(selectisAdmin);
+  const linkOptions = isAuthenticated? (isAdmin? adminLinks: userLinks): generalLinks;
+
   return (
     <div className="nav-container flex justify-between h-24 items-center m-2 p-6 bg-transparent text-gray-300 shadow-lg">
       <Link to={"/"}>
@@ -16,7 +22,7 @@ export const NavBar = () => {
 
       <div className="links-container md:text-2xl text-md">
         <ul className="flex">
-          {links.map((link) => {
+          {linkOptions.map((link) => {
             const { id, path, text } = link;
             return (
               <li
@@ -29,6 +35,7 @@ export const NavBar = () => {
               </li>
             );
           })}
+          {isAuthenticated? <LogoutButton />: null}
         </ul>
       </div>
     </div>

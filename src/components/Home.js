@@ -8,6 +8,7 @@ import { HeroText } from "./HeroText";
 import { Admin } from "./Admin";
 import { ForgotPasswordApplication } from './ForgotPasswordApplication';
 import { NewPasswordForm } from './NewPasswordForm';
+import { AdminLogin } from './AdminLogin';
 
 export const Home = () => {
   return (
@@ -35,6 +36,9 @@ export const Home = () => {
           </Route>
           <Route exact path="/admin">
             <Admin />
+          </Route>
+          <Route exact path="/adminLogin">
+            <AdminLogin />
           </Route>
         </Switch>
       </div>
