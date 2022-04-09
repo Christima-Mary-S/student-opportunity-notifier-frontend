@@ -3,12 +3,16 @@ import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectIsAuthenticated, selectisAdmin } from "../selectors/selectors";
 import { generalLinks, userLinks, adminLinks } from "./data";
-import { LogoutButton } from './LogoutButton';
+import { LogoutButton } from "./LogoutButton";
 
-export const NavBar = () => { 
+export const NavBar = () => {
   const isAuthenticated = useSelector(selectIsAuthenticated);
   const isAdmin = useSelector(selectisAdmin);
-  const linkOptions = isAuthenticated? (isAdmin? adminLinks: userLinks): generalLinks;
+  const linkOptions = isAuthenticated
+    ? isAdmin
+      ? adminLinks
+      : userLinks
+    : generalLinks;
 
   return (
     <div className="nav-container flex justify-between h-24 items-center m-2 p-6 bg-transparent text-gray-300 shadow-lg">
@@ -30,12 +34,11 @@ export const NavBar = () => {
                 className="m-3 hover:text-cyan-light hover:underline underline-offset-2 decoration-cyan-light hover:scale-110 transition ease-in-out"
               >
                 {/* <a href={path}>{text}</a> */}
-
                 <Link to={path}>{text}</Link>
               </li>
             );
           })}
-          {isAuthenticated? <LogoutButton />: null}
+          {isAuthenticated ? <LogoutButton /> : null}
         </ul>
       </div>
     </div>
