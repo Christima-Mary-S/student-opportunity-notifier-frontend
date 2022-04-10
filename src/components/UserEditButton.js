@@ -1,16 +1,16 @@
-import {
-    FaUserEdit
-} from "react-icons/fa";
+import { FaUserEdit } from "react-icons/fa";
 import { useHistory } from "react-router-dom";
 
 export const UserEditButton = (props) => {
-    const history = useHistory()
+  const history = useHistory();
 
-    const onClick = () => {
-        history.push("/updateUserDetails");
-    } 
+  const onClick = () => {
+    history.push("/updateUserDetails");
+  };
 
-    return <button onClick={onClick}>
-        <FaUserEdit />
-    </button>; 
-}
+  return (
+    <button className="btn flex gap-1" onClick={onClick}>
+      <FaUserEdit /> Edit
+    </button>
+  );
+};

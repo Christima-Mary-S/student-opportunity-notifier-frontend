@@ -37,6 +37,9 @@ code {
 .btn {
   @apply mt-4 bg-cyan-light transform ease-in-out  w-64 md:w-52 flex justify-center items-center p-2  rounded-md border-0 capitalize;
 }
+.dash-card {
+  @apply bg-black-light border-2 border-slate-600 rounded-sm p-2 flex md:w-[750px] md:h-[50px] justify-between mb-1;
+}
 
 .text-danger {
   color: orangered;

@@ -11,7 +11,7 @@ function SavedArticles() {
       {savedArticles.map((article) => {
         const { title, location, link } = article;
         return (
-          <div className="bg-black-light border-2 border-slate-600 rounded-sm p-2 flex md:w-[750px] md:h-[50px] justify-between mb-1">
+          <div className="dash-card">
             <p>
               {title}, {location}
             </p>
