@@ -19,7 +19,7 @@ export const UserDashboard = () => {
 
   return (
     <div className="text-lg">
-      <Tabs className="flex  h-96 w-96 md:w-[1000px] md:h-[500px] bg-black-light capitalize text-gray-dark shadow-xl shadow-slate-600 p-10">
+      <Tabs className="flex  h-96 w-96 md:w-[1000px] md:h-[500px] bg-black-light text-gray-dark shadow-xl shadow-slate-600 p-10">
         <TabList className="mr-5 p-5 md:mr-8 border-r-2 border-cyan-light">
           <Tab className="cursor-pointer border-b-2 border-cyan-light p-2 bg-black-light">
             Profile
