@@ -3,12 +3,12 @@ import { useSelector } from "react-redux";
 import { selectUser } from "../selectors/selectors";
 
 export const Profile = () => {
-  const { username, collegeName, yearOfGraduation, email } =
+  const { name, username, collegeName, yearOfGraduation, email } =
     useSelector(selectUser);
 
   return (
     <div>
-      <div className="dash-card">Name :</div>
+      <div className="dash-card">Name : {name}</div>
       <div className="dash-card">Username : {username}</div>
       <div className="dash-card">Email : {email}</div>
       <div className="dash-card">
