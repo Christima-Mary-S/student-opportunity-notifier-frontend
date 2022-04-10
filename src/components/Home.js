@@ -9,6 +9,7 @@ import { Admin } from "./Admin";
 import { ForgotPasswordApplication } from './ForgotPasswordApplication';
 import { NewPasswordForm } from './NewPasswordForm';
 import { AdminLogin } from './AdminLogin';
+import { UpdateUserDetailsForm } from './UpdateUserDetailsForm';
 
 export const Home = () => {
   return (
@@ -33,6 +34,9 @@ export const Home = () => {
           </Route>
           <Route exact path="/dashboard">
             <Dashboard />
+          </Route>
+          <Route exact path="/updateUserDetails">
+            <UpdateUserDetailsForm />
           </Route>
           <Route exact path="/admin">
             <Admin />
