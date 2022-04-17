@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import validator from "validator";
 import { updateNewPassword, updateUserDetails } from "../api";
-import { clearErrors } from "../actions/actionCreators";
+import { clearErrors, updateUser } from "../actions/actionCreators";
 import { selectUser } from "../selectors/selectors";
 import { isEmpty } from 'is-empty';
 
@@ -58,11 +58,18 @@ export const UpdateUserDetailsForm = () => {
         event.preventDefault();
 
         if (validate() === true) {
-            await updateUserDetails({
+            dispatch(updateUser({
+                userId: user.id,
                 name: name,
                 college: college,
                 year: year
-            });
+            }));
+            /*await updateUserDetails({
+                userId: user.id,
+                name: name,
+                college: college,
+                year: year
+            });*/ 
             history.push("/dashboard"); 
         } 
         clear();

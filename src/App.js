@@ -22,7 +22,7 @@ function App() {
     const token = localStorage.jwtToken;
     const userData = jwtDecode(token);
     const currentTime = Date.now() / 1000; //milliseconds
-    if (userData.exp < currentTime) {
+    if (userData.exp < currentTime || localStorage.modified) {
       dispatch(logout(history));
     } else {
       dispatch({

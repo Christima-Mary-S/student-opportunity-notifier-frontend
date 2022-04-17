@@ -25,9 +25,10 @@ export const updateNewPassword = (password, token) => {
     }).then(data => console.log(data));
 }
 export const updateUserDetails = (details) => {
-    axios.post(baseUrl + "/updateUserDetails", {
+    return axios.post(baseUrl + "/updateUserDetails", {
+        userId: details.userId,
         name: details.name,
-        college: details.college,
-        year: details.year
-    }).then(data => console.log(data));
+        collegeName: details.college,
+        yearOfGraduation: details.year
+    });
 }

@@ -2,7 +2,7 @@ import * as api from "../api/index.js";
 import { GET_LATEST_ARTICLES, GET_ERRORS, SET_CURRENT_USER, SET_ADMIN, UNSET_ADMIN, SAVE_ARTICLE, GET_USERS } from "../actions/actionTypes.js"
 import { setAuthToken } from "../utils/setAuthToken";
 import jwtDecode from "jwt-decode";
-import { GET_SAVED_ARTICLES, DELETE_ARTICLE, DELETE_USER, CLEAR_ERRORS } from './actionTypes';
+import { GET_SAVED_ARTICLES, DELETE_ARTICLE, DELETE_USER, CLEAR_ERRORS, MODIFY_USER } from './actionTypes';
 
 export const getLatestArticles = () => {
     return async (dispatch) => {
@@ -42,16 +42,18 @@ export const login = (details, history) => {
             const token = data.token;
             setAuthToken(token);
             localStorage.setItem("jwtToken", token);
+            localStorage.removeItem("modified");
             const userData = jwtDecode(token);
+            console.log("data", userData)
             dispatch({
                 type: SET_CURRENT_USER,
                 payload: userData
-            }); 
+            });
             if (userData.username === "admin") {
                 dispatch({
                     type: SET_ADMIN
                 });
-                history.push("/admin"); 
+                history.push("/admin");
             } else {
                 history.push("/dashboard");
             }
@@ -76,6 +78,22 @@ export const logout = (history) => {
             type: UNSET_ADMIN
         });
         history.push("/login");
+    }
+}
+
+export const updateUser = (details) => {
+    return async (dispatch) => {
+        try {
+            const { data } = await api.updateUserDetails(details);
+            console.log(data.user)
+            dispatch({ 
+                type: MODIFY_USER,
+                payload: data.user
+            })
+            localStorage.setItem("modified", "true");
+        } catch (error) {
+            console.log(error)
+        }
     }
 }
 
@@ -117,7 +135,7 @@ export const getSavedArticles = (userId) => {
             console.log(error.message);
         }
     }
-} 
+}
 
 export const getUsers = () => {
     return async (dispatch) => {
