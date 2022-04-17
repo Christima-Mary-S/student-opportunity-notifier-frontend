@@ -25,7 +25,7 @@ export const updateNewPassword = (password, token) => {
     }).then(data => console.log(data));
 }
 export const updateUserDetails = (details) => {
-    axios.patch(baseUrl + "/updateUserDetails", {
+    axios.post(baseUrl + "/updateUserDetails", {
         name: details.name,
         college: details.college,
         year: details.year
