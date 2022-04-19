@@ -19,8 +19,8 @@ export const NavBar = () => {
       <Link to={"/"}>
         <p className="md:text-6xl text-2xl hover:scale-125 transition ease-in">
           {" "}
-          <span className="text-cyan-light">Lo</span>
-          <span className="text-white">go</span>{" "}
+          <span className="text-cyan-light">So</span>
+          <span className="text-white">pN</span>{" "}
         </p>
       </Link>
 
